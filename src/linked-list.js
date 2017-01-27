@@ -95,12 +95,9 @@ class LinkedList {
     }
 
     clear() {
-      if (this.length != 0)
-      {
         this._head = null;
         this._tail = null;
         this.length = 0;
-      }
     }
 
     deleteAt(index) {
@@ -138,10 +135,12 @@ class LinkedList {
 
     reverse() {
       var node = new Node();
-      node = this._head;
-      var nodeBuf = new Node();
+      var tailNode = new Node();
 
-      var counter = 0;
+      node = this._head;
+      tailNode = this._head;
+
+      var nodeBuf = new Node();
 
       while (node != null)
       {
@@ -153,6 +152,7 @@ class LinkedList {
       }
 
       this._head = nodeBuf.prev;
+      this._tail = tailNode;
     }
 
     indexOf(data) {
