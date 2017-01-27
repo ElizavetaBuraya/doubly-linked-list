@@ -8,11 +8,13 @@ class LinkedList {
     }
 
     append(data) {
+      var node = new Node();
+      node.data = data;
 
       if (this.length == 0)
       {
-        this._head.data = data;
-        this._tail.data = data;
+        this._head = node;
+        this._tail = node;
 
         this.length++;
       }
