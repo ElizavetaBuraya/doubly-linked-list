@@ -95,9 +95,12 @@ class LinkedList {
     }
 
     clear() {
-      this._head = null;
-      this._tail = null;
-      this._length = 0;
+      if (this.length != 0)
+      {
+        this._head = null;
+        this._tail = null;
+        this.length = 0;
+      }
     }
 
     deleteAt(index) {
@@ -123,6 +126,12 @@ class LinkedList {
           {
             this._tail = node.prev;
           }
+
+      else
+         {
+           node.prev.next = node.next;
+           node.next.prev = node.prev;
+         }
       }
       this.length--;
     }
