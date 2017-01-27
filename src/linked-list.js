@@ -1,27 +1,165 @@
 const Node = require('./node');
 
 class LinkedList {
-    constructor() {}
+    constructor() {
+      this.length = 0;
+      this._head = null;
+      this._tail = null;
+    }
 
-    append(data) {}
+    append(data) {
+      var node = new Node();
+      node.data = data;
 
-    head() {}
+      if (this.length == 0)
+      {
+        this._head = node;
+        this._tail = node;
 
-    tail() {}
+        this.length++;
+      }
 
-    at(index) {}
+      else {
+        node.prev = this._tail;
+        this._tail.next = node;
+        this._tail = node;
 
-    insertAt(index, data) {}
+        this.length++;
+      }
+    }
 
-    isEmpty() {}
+    head() {
+      if (this.length != 0)
+      {
+       var headNode = this._head;
+       return headNode.data;
+      }
+    }
 
-    clear() {}
+    tail() {
+      if (this.length != 0)
+      {
+       var tailNode = this._tail;
+       return tailNode.data;
+      }
+    }
 
-    deleteAt(index) {}
+    at(index) {
+      if (this.length >= index)
+      {
+        var node = this._head;
+        var counter = 0;
 
-    reverse() {}
+        while (index != counter)
+        {
+          node = node.next;
 
-    indexOf(data) {}
+          counter++;
+        }
+
+        return node.data;
+      }
+    }
+
+    insertAt(index, data) {
+      var node = this._head;
+      var counter = 0;
+
+      while (index != counter)
+      {
+        node = node.next;
+
+        counter++;
+      }
+
+      node.data = data;
+    }
+
+    isEmpty() {
+      if (this.length == 0)
+      {
+        return true;
+      }
+      else
+      {
+        return false;
+      }
+    }
+
+    clear() {
+      this._head = null;
+      this._tail = null;
+      this._length = 0;
+    }
+
+    deleteAt(index) {
+      var node = this._head;
+      var counter = 0;
+
+      if (this.length >= index)
+      {
+        while (index != counter)
+        {
+          node = node.next;
+
+          counter++;
+        }
+
+      if (node.prev == null)
+        {
+          this._head = node.next;
+        }
+
+      else if (node.next == null)
+          {
+            this._tail = node.prev;
+          }
+      }
+      this.length--;
+    }
+
+    reverse() {
+      var node = this._head;
+      var nodeBuf = new Node();
+
+      var counter = 0;
+
+      while (node != null)
+      {
+        nodeBuf = node.prev;
+        node.prev = node.next;
+        node.next = nodeBuf;
+
+        node = node.prev;
+      }
+
+      this._head = nodeBuf.prev;
+    }
+
+    indexOf(data) {
+      var node = this._head;
+
+      var index = 0;
+      var counter = 0;
+
+      while (counter < this.length)
+      {
+        if (node.data == data)
+        {
+          index = counter;
+          break;
+        }
+        else
+        {
+          index = -1;
+        }
+
+        node = node.next;
+        counter++;
+      }
+
+        return index;
+    }
 }
 
 module.exports = LinkedList;
