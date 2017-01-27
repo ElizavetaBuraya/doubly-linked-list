@@ -31,7 +31,9 @@ class LinkedList {
     head() {
       if (this.length != 0)
       {
-       var headNode = this._head;
+       var headNode = new Node();
+       headNode = this._head;
+       
        return headNode.data;
       }
     }
