@@ -134,6 +134,7 @@ class LinkedList {
     }
 
     reverse() {
+      if (this.length != 0)
       var node = new Node();
       var tailNode = new Node();
 
