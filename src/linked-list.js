@@ -8,7 +8,7 @@ class LinkedList {
     }
 
     append(data) {
-      const node = new Node();
+      var node = new Node();
       node.data = data;
 
       if (this.length == 0)
@@ -31,7 +31,7 @@ class LinkedList {
     head() {
       if (this.length != 0)
       {
-       const headNode = new Node();
+       var headNode = new Node();
        headNode = this._head;
 
        return headNode.data;
@@ -41,7 +41,7 @@ class LinkedList {
     tail() {
       if (this.length != 0)
       {
-       const tailNode = new Node();
+       var tailNode = new Node();
        tailNode = this._tail;
 
        return tailNode.data;
@@ -51,7 +51,7 @@ class LinkedList {
     at(index) {
       if (this.length >= index)
       {
-        const node = new Node();
+        var node = new Node();
         node = this._head;
 
         var counter = 0;
@@ -68,7 +68,7 @@ class LinkedList {
     }
 
     insertAt(index, data) {
-      const node = new Node();
+      var node = new Node();
       var node = this._head;
 
       var counter = 0;
@@ -101,7 +101,7 @@ class LinkedList {
     }
 
     deleteAt(index) {
-      const node = new Node();
+      var node = new Node();
       node = this._head;
       var counter = 0;
 
@@ -128,9 +128,9 @@ class LinkedList {
     }
 
     reverse() {
-      const node = new Node();
+      var node = new Node();
       node = this._head;
-      const nodeBuf = new Node();
+      var nodeBuf = new Node();
 
       var counter = 0;
 
@@ -147,7 +147,7 @@ class LinkedList {
     }
 
     indexOf(data) {
-      const node = new Node();
+      var node = new Node();
       node = this._head;
 
       var index = 0;
